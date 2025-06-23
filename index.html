@@ -2,54 +2,94 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Raj Shrestha | Portfolio</title>
   <style>
     body {
-      font-family: Arial;
-      margin: 20px;
-      background-color: #f4f4f4;
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #f4f7f9, #e8f0fe);
       color: #333;
+      scroll-behavior: smooth;
     }
+
     header {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-    section {
-      margin-bottom: 30px;
-    }
-    h2 {
-      border-bottom: 2px solid #333;
-      padding-bottom: 5px;
-    }
-    a {
-      color: #0077cc;
-      text-decoration: none;
-    }
-    a.button {
-      display: inline-block;
-      padding: 10px 20px;
-      background: #0077cc;
+      background-color: #000;
       color: white;
-      text-decoration: none;
-      border-radius: 5px;
+      padding: 20px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
+
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .main {
+      display: flex;
+      padding: 40px;
+      background-color: white;
+      margin: 40px auto;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      max-width: 1200px;
+    }
+
+    .intro {
+      width: 50%;
+      padding-right: 40px;
+    }
+
+    .content {
+      width: 50%;
+      border-left: 2px solid #eee;
+      padding-left: 40px;
+    }
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+
+    ul {
+      text-align: left;
+      padding-left: 20px;
+    }
+
+    p {
+      line-height: 1.6;
+    }
+
     input, textarea {
       width: 100%;
-      max-width: 500px;
-      padding: 8px;
-      margin-top: 4px;
-      margin-bottom: 10px;
+      max-width: 100%;
+      padding: 10px;
+      margin-top: 10px;
       border: 1px solid #ccc;
-      border-radius: 4px;
+      border-radius: 5px;
     }
+
     input[type="submit"] {
       background-color: #0077cc;
       color: white;
       border: none;
       cursor: pointer;
       padding: 10px 20px;
+      margin-top: 10px;
+      border-radius: 5px;
     }
+
     input[type="submit"]:hover {
       background-color: #005fa3;
     }
@@ -58,73 +98,86 @@
 <body>
 
   <header>
-    <h1>Raj Shrestha</h1>
-    <p>Brampton, ON | <a href="mailto:riyazstha000@gmail.com">riyazstha000@gmail.com</a></p>
-    <p>
-      <a href="https://github.com/Stha-Raj" target="_blank">GitHub</a> |
-      <a href="https://linkedin.com/in/Raj-Shrestha" target="_blank">LinkedIn</a>
-    </p>
+    Raj Shrestha
+    <nav>
+      <a onclick="showSection('education')">Education</a>
+      <a onclick="showSection('projects')">Projects</a>
+      <a onclick="showSection('certification')">Certification</a>
+      <a onclick="showSection('skills')">Skills</a>
+      <a onclick="showSection('contact')">Contact</a>
+    </nav>
   </header>
 
-  <section>
-    <h2>About Me</h2>
-    <p>Recent Computer Engineering Technician graduate with hands-on experience in system support, electronics prototyping, and technical troubleshooting. Passionate about building practical tech solutions and learning continuously in both hardware and software fields.</p>
-  </section>
+  <div class="main">
+    <div class="intro">
+      <h1>
+        Hi, <span style="background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+                         -webkit-background-clip: text;
+                         color: transparent;
+                         font-weight: bold;">Welcome</span>
+      </h1>
+      <p>I'm Raj Shrestha, a recent graduate in <strong>Computer Engineering Technician</strong> from <strong>Sheridan College (2023–2025)</strong>.</p>
+      <p>I specialize in <strong>electronics prototyping</strong>, <strong>system support</strong>, and <strong>troubleshooting</strong> — with hands-on experience in <strong>microcontrollers</strong>, <strong>Java</strong>, <strong>Python</strong>, and <strong>robotics</strong>.</p>
+      <p>I'm passionate about turning practical tech ideas into real solutions, and I’m always eager to learn and grow in both hardware and software environments.</p>
+      <p>Outside of tech, I’m an avid soccer enthusiast — both watching and playing. I currently play part-time for <strong>Nepalese Peel FC</strong>, combining my love for teamwork and discipline both on the field and in my career.</p>
+    </div>
 
-  <section>
-    <h2>Education</h2>
-    <p><strong>Sheridan College, Brampton</strong> — Diploma in Computer Engineering Technician (2023–2025)</p>
-    <p><em>Courses:</em> Microcontrollers, Circuits, Robotics, Linux OS, Python, Java, DB Design, IT Project Mgmt.</p>
-  </section>
+    <div class="content" id="section-content">
+      <!-- Dynamic content loads here -->
+    </div>
+  </div>
 
-  <section>
-    <h2>Certifications</h2>
-    <ul>
-      <li>Google IT Support Professional Certificate – 2024</li>
-    </ul>
-  </section>
+  <script>
+    const content = document.getElementById('section-content');
 
-  <section>
-    <h2>Projects</h2>
-    <ul>
-      <li><strong>LED Blinker using 555 Timer</strong> – Created blinking LED circuit with PCB design.</li>
-      <li><strong>Pet Rescue Donation System</strong> – SQL-based data warehouse with ETL using Talend.</li>
-      <li><strong>Campus Connect Web App</strong> – Agile web project for class schedules, IT help, etc.</li>
-    </ul>
-  </section>
+    const sections = {
+      education: `
+        <h2>Education</h2>
+        <p><strong>Sheridan College, Brampton</strong> — Diploma in Computer Engineering Technician (2023–2025)</p>
+        <p><em>Courses:</em> Data Communication, Microprocessors & Microcontrollers, Practical Circuits, Industrial Robotics, Linux OS, C++, Python, Java, Database Design, IT Project Management, System Integration</p>
+      `,
+      projects: `
+        <h2>Projects</h2>
+        <ul>
+          <li><strong>LED Blinker using 555 Timer:</strong> Designed and tested blinking LED circuit using NE555 in astable mode, including PCB layout in EAGLE.</li>
+          <li><strong>Pet Rescue Donation System:</strong> SQL-based donation management system using ETL in Talend and Oracle SQL Dev with role-based access.</li>
+          <li><strong>Campus Connect Web App:</strong> Agile team project for student support, class schedules, and payment modules.</li>
+        </ul>
+      `,
+      certification: `
+        <h2>Certification</h2>
+        <ul>
+          <li>Google IT Support Professional Certificate – 2023</li>
+        </ul>
+      `,
+      skills: `
+        <h2>Technical Skills</h2>
+        <ul>
+          <li><strong>Programming:</strong> Python, Java, C++</li>
+          <li><strong>Electronics:</strong> Microcontrollers, PLCs, PCB Design</li>
+          <li><strong>Tools:</strong> Linux, Windows, SQL Dev, Talend, AutoCAD, EAGLE, Jira</li>
+          <li><strong>Soft Skills:</strong> Communication, Teamwork, Agile, Troubleshooting</li>
+        </ul>
+      `,
+      contact: `
+        <h2>Contact Me</h2>
+        <form action="https://formspree.io/f/xkgbqpkd" method="POST">
+          <input type="text" name="name" placeholder="Your Name" required><br>
+          <input type="email" name="email" placeholder="Your Email" required><br>
+          <textarea name="message" rows="5" placeholder="Your Message" required></textarea><br>
+          <input type="submit" value="Send">
+        </form>
+        <p style="margin-top: 20px;">
+          Or connect with me on 
+          <a href="https://www.linkedin.com/in/raj-shrestha-827b28263/" target="_blank" style="color: #0077cc; text-decoration: none;"><strong>LinkedIn</strong></a>
+        </p>
+      `
+    };
 
-  <section>
-    <h2>Technical Skills</h2>
-    <p><strong>Languages:</strong> Python, Java, C++</p>
-    <p><strong>Tools:</strong> Linux, Windows, SQL Dev, Talend, AutoCAD, Jira, EAGLE</p>
-    <p><strong>Soft Skills:</strong> Communication, Troubleshooting, Agile, Documentation</p>
-  </section>
-
-  <section>
-    <h2>Interests</h2>
-    <p>Electronics prototyping, DIY tech builds, soccer, automation ideas.</p>
-  </section>
-
-  <section>
-    <h2>Resume</h2>
-    <a href="Raj_Shrestha_Resume.pdf" download class="button">Download Resume</a>
-  </section>
-
-  <section>
-    <h2>Contact Me</h2>
-    <form action="https://formspree.io/f/xkgbqpkd" method="POST">
-      <label for="name">Your Name:</label><br>
-      <input type="text" id="name" name="name" required><br>
-
-      <label for="email">Your Email:</label><br>
-      <input type="email" id="email" name="email" required><br>
-
-      <label for="message">Your Message:</label><br>
-      <textarea id="message" name="message" rows="5" required></textarea><br>
-
-      <input type="submit" value="Send">
-    </form>
-  </section>
+    function showSection(id) {
+      content.innerHTML = sections[id];
+    }
+  </script>
 
 </body>
 </html>
